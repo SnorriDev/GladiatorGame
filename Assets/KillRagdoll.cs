@@ -5,26 +5,16 @@ public class KillRagdoll : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-		//kill<BoxCollider> ();
-		//setRagdoll (true);
-		activateRecursively(transform.Find("ragdoll"), false);
+		activateRecursively (transform.Find ("master"), false);
 	}
 
-	void Update() {
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			Debug.Log ("dead");
-			GetComponent<CharacterController>().detectCollisions = false;
-			activateRecursively(transform.Find ("ragdoll"), true);
-			setRagdoll(true);
-		}
-	}
-
-	private void kill<E>() where E : Collider {
-		foreach (E r in transform.GetComponentsInChildren<E>()) {
-			Debug.Log(r);
-			((Collider) r).isTrigger = true;
-		}
-
+	public void kill() {
+		GetComponent<CharacterController>().enabled = false;
+		GetComponent<AnimationManager>().enabled = false;
+		GetComponent<Animation>().enabled = false;
+		GetComponent<CharacterMotor>().enabled = false;
+		activateRecursively(transform.Find("master"), true);
+		setRagdoll (true);
 	}
 
 	private void setRagdoll(bool flag) {
@@ -39,6 +29,6 @@ public class KillRagdoll : MonoBehaviour {
 			activateRecursively(t, flag);
 		}
 	}
-	//the
+
 
 }

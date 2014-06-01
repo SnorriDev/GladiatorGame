@@ -52,6 +52,7 @@
      <Compile Include="Assets\HealthManager.cs" />
      <Compile Include="Assets\KillRagdoll.cs" />
      <Compile Include="Assets\LaunchProjectile.cs" />
+     <Compile Include="Assets\ProjectileDamage.cs" />
      <Compile Include="Assets\WeaponMove.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
