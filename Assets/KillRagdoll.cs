@@ -4,9 +4,19 @@ using System.Collections;
 public class KillRagdoll : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		//kill<BoxCollider> ();
-		setRagdoll (true);
+		//setRagdoll (true);
+		activateRecursively(transform.Find("ragdoll"), false);
+	}
+
+	void Update() {
+		if (Input.GetKeyDown (KeyCode.Z)) {
+			Debug.Log ("dead");
+			GetComponent<CharacterController>().detectCollisions = false;
+			activateRecursively(transform.Find ("ragdoll"), true);
+			setRagdoll(true);
+		}
 	}
 
 	private void kill<E>() where E : Collider {
@@ -22,5 +32,13 @@ public class KillRagdoll : MonoBehaviour {
 			r.isKinematic = ! flag;
 		}
 	}
+
+	private void activateRecursively(Transform trans, bool flag) {
+		trans.gameObject.SetActive(flag);
+		foreach (Transform t in trans) {
+			activateRecursively(t, flag);
+		}
+	}
+	//the
 
 }
