@@ -28,7 +28,5 @@ public class AnimationManager : MonoBehaviour {
 		else
 			animation.CrossFade (running.name);
 
-		characterController.Move (transform.forward * (Input.GetKey(KeyCode.Z) ? 1 : 0) * Time.deltaTime);
-
 	}
 }

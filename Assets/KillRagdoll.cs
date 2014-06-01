@@ -5,7 +5,8 @@ public class KillRagdoll : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		kill<BoxCollider> ();
+		//kill<BoxCollider> ();
+		setRagdoll (true);
 	}
 
 	private void kill<E>() where E : Collider {
@@ -14,6 +15,12 @@ public class KillRagdoll : MonoBehaviour {
 			((Collider) r).isTrigger = true;
 		}
 
+	}
+
+	private void setRagdoll(bool flag) {
+		foreach (Rigidbody r in transform.GetComponentsInChildren<Rigidbody>()) {
+			r.isKinematic = ! flag;
+		}
 	}
 
 }
