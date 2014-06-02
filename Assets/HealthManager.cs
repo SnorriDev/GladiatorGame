@@ -30,4 +30,10 @@ public class HealthManager : MonoBehaviour {
 			damage (100);
 
 	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit) {
+		if (hit.gameObject.tag == "Damage") {
+			Debug.Log ("yo");
+		}
+	}
 }

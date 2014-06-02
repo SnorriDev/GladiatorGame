@@ -31,4 +31,5 @@ public class AnimationManager : MonoBehaviour {
 			animation.CrossFade (running.name);
 
 	}
+
 }
