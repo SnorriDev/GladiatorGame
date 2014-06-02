@@ -31,11 +31,4 @@ public class HealthManager : MonoBehaviour {
 
 	}
 
-	void OnControllerColliderHit(ControllerColliderHit hit) {
-		if (hit.collider.tag != "Untagged") {
-			Debug.Log (hit.collider);
-			Damager damager = hit.transform.GetComponent<Damager>();
-			damage(damager.damage);
-		}
-	}
 }

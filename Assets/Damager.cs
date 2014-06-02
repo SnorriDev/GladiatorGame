@@ -9,6 +9,9 @@ public class Damager : MonoBehaviour {
 	private bool count;
 
 	public void OnCollisionEnter(Collision col) {
+
+		if (col.collider.tag == "Health")
+			col.collider.GetComponent<HealthManager> ().damage (damage);
 		count = true;
 	}
 
