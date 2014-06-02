@@ -32,7 +32,8 @@ public class LaunchProjectile : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetButtonDown ("Fire1") && shotDelay <= 0 && ammo > 0) { //shooting mechanism
-			Instantiate(projectile, transform.position + transform.forward, transform.rotation);
+			Transform g = (Transform) Instantiate(projectile, transform.position + transform.forward, transform.rotation);
+			g.rigidbody.velocity = transform.parent.GetComponent<CharacterController>().velocity;
 			ammo --;
 			shotDelay = coolTime;
 

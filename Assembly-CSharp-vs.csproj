@@ -48,12 +48,12 @@
   <ItemGroup>
      <Compile Include="Assets\AnimationManager.cs" />
      <Compile Include="Assets\BombMotion.cs" />
+     <Compile Include="Assets\Damager.cs" />
      <Compile Include="Assets\EnemyAI.cs" />
      <Compile Include="Assets\HealthManager.cs" />
      <Compile Include="Assets\KillRagdoll.cs" />
      <Compile Include="Assets\LaunchProjectile.cs" />
      <Compile Include="Assets\MeleeAttack.cs" />
-     <Compile Include="Assets\ProjectileDamage.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
