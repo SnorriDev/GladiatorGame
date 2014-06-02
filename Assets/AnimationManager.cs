@@ -8,6 +8,8 @@ public class AnimationManager : MonoBehaviour {
 	public AnimationClip hurtWalking;
 	public AnimationClip idle;
 
+	public AnimationClip meleeAttack;
+
 	public float walkSpeed;
 	public float runSpeed;
 
@@ -27,8 +29,6 @@ public class AnimationManager : MonoBehaviour {
 			animation.CrossFade (walking.name);
 		else
 			animation.CrossFade (running.name);
-
-		characterController.Move (transform.forward * (Input.GetKey(KeyCode.Z) ? 1 : 0) * Time.deltaTime);
 
 	}
 }

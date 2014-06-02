@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{B05EFB74-BEA3-3542-1874-91062E2F1299}</ProjectGuid>
+	<ProjectGuid>{8DCA0698-2621-2CB7-CBA6-4B02A3CC3D34}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -48,18 +48,19 @@
   <ItemGroup>
      <Compile Include="Assets\AnimationManager.cs" />
      <Compile Include="Assets\BombMotion.cs" />
+     <Compile Include="Assets\EnemyAI.cs" />
      <Compile Include="Assets\HealthManager.cs" />
      <Compile Include="Assets\KillRagdoll.cs" />
      <Compile Include="Assets\LaunchProjectile.cs" />
      <Compile Include="Assets\MeleeAttack.cs" />
-     <Compile Include="Assets\WeaponMove.cs" />
+     <Compile Include="Assets\ProjectileDamage.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{781BFC73-55BE-2547-E927-922158F9836A}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{4EF2688D-B2C6-ED09-AA0A-2B6377A9EF56}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{E609A574-655B-B5B4-1BEF-5C8AC25BE4B0}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+      <Project>{34AB3861-C090-99B4-0C33-FB97F42467DB}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
