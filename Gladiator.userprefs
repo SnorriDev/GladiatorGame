@@ -1,14 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\LaunchProjectile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\WeaponPosition.cs">
     <Files>
-      <File FileName="Assets\LaunchProjectile.cs" Line="35" Column="20" />
-      <File FileName="Assets\KillRagdoll.cs" Line="1" Column="1" />
-      <File FileName="Assets\HealthManager.cs" Line="36" Column="27" />
+      <File FileName="Assets\KillRagdoll.cs" Line="30" Column="23" />
+      <File FileName="Assets\LaunchProjectile.cs" Line="1" Column="1" />
+      <File FileName="Assets\HealthManager.cs" Line="1" Column="1" />
       <File FileName="Assets\EnemyAI.cs" Line="1" Column="1" />
       <File FileName="Assets\BombMotion.cs" Line="1" Column="1" />
-      <File FileName="Assets\AnimationManager.cs" Line="25" Column="18" />
-      <File FileName="Assets\Damager.cs" Line="20" Column="15" />
+      <File FileName="Assets\AnimationManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Damager.cs" Line="1" Column="1" />
+      <File FileName="Assets\WeaponPosition.cs" Line="23" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

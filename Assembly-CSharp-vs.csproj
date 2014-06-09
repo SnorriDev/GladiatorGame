@@ -54,6 +54,7 @@
      <Compile Include="Assets\KillRagdoll.cs" />
      <Compile Include="Assets\LaunchProjectile.cs" />
      <Compile Include="Assets\MeleeAttack.cs" />
+     <Compile Include="Assets\WeaponPosition.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
