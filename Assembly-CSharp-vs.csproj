@@ -46,15 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AnimationManager.cs" />
-     <Compile Include="Assets\BombMotion.cs" />
-     <Compile Include="Assets\Damager.cs" />
-     <Compile Include="Assets\EnemyAI.cs" />
-     <Compile Include="Assets\HealthManager.cs" />
-     <Compile Include="Assets\KillRagdoll.cs" />
-     <Compile Include="Assets\LaunchProjectile.cs" />
-     <Compile Include="Assets\MeleeAttack.cs" />
-     <Compile Include="Assets\WeaponPosition.cs" />
+     <Compile Include="Assets\Scripts\AnimationManager.cs" />
+     <Compile Include="Assets\Scripts\BombMotion.cs" />
+     <Compile Include="Assets\Scripts\BulletTrail.cs" />
+     <Compile Include="Assets\Scripts\Damager.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI.cs" />
+     <Compile Include="Assets\Scripts\HealthManager.cs" />
+     <Compile Include="Assets\Scripts\KillRagdoll.cs" />
+     <Compile Include="Assets\Scripts\LaunchProjectile.cs" />
+     <Compile Include="Assets\Scripts\MeleeAttack.cs" />
+     <Compile Include="Assets\Scripts\ParticleWeapon.cs" />
+     <Compile Include="Assets\Scripts\ProjectileWeapon.cs" />
+     <Compile Include="Assets\Scripts\Weapon.cs" />
+     <Compile Include="Assets\Scripts\WeaponPosition.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
