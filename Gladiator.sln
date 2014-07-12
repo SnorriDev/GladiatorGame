@@ -5,6 +5,8 @@ Project("{F92B3649-1AF5-02E1-A73E-F7AA499211B0}") = "Gladiator", "Assembly-CShar
 EndProject
 Project("{F92B3649-1AF5-02E1-A73E-F7AA499211B0}") = "Gladiator", "Assembly-CSharp.csproj", "{8DCA0698-2621-2CB7-CBA6-4B02A3CC3D34}"
 EndProject
+Project("{F92B3649-1AF5-02E1-A73E-F7AA499211B0}") = "Gladiator", "Assembly-CSharp-Editor.csproj", "{F9F8FF6E-B882-CC7F-457D-F0DD2AC20823}"
+EndProject
 Project("{F92B3649-1AF5-02E1-A73E-F7AA499211B0}") = "Gladiator", "Assembly-UnityScript-firstpass.unityproj", "{34AB3861-C090-99B4-0C33-FB97F42467DB}"
 EndProject
 Global
@@ -21,6 +23,10 @@ Global
 		{8DCA0698-2621-2CB7-CBA6-4B02A3CC3D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DCA0698-2621-2CB7-CBA6-4B02A3CC3D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DCA0698-2621-2CB7-CBA6-4B02A3CC3D34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F8FF6E-B882-CC7F-457D-F0DD2AC20823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F8FF6E-B882-CC7F-457D-F0DD2AC20823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F8FF6E-B882-CC7F-457D-F0DD2AC20823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F8FF6E-B882-CC7F-457D-F0DD2AC20823}.Release|Any CPU.Build.0 = Release|Any CPU
 		{34AB3861-C090-99B4-0C33-FB97F42467DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{34AB3861-C090-99B4-0C33-FB97F42467DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34AB3861-C090-99B4-0C33-FB97F42467DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,7 +35,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																			GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
