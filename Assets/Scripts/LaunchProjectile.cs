@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 public class LaunchProjectile : MonoBehaviour {
 
-	//TODO: basically make these stats be pulled from the weapon
-	//TODO: add a script on the weapon with a shoot() method
-	//have a weapon transform with attached weapon
+	//TODO: better integrate recoil
+	//TODO: pull recoil vector from weapon?
+	//TODO: have return statement from attack()
+	//TODO: fix up the recoil parameters
 
 	//add the Damage message on the health manager instead of a .damage() method
 
@@ -13,11 +14,15 @@ public class LaunchProjectile : MonoBehaviour {
 
 	private List<Weapon> weapons;
 	private int weaponIndex;
+
+	private Recoil recoiler;
 	
 	void Start () {
 
+		recoiler = transform.root.Find ("Recoiler").GetComponent<Recoil>();
+
 		weapons = new List<Weapon>();
-		Transform weaponFolder = transform.parent.Find("Weapons");
+		Transform weaponFolder = transform.root.Find("Weapons");
 
 		if (weaponFolder != null) {
 			foreach (Transform w in weaponFolder) {
@@ -35,6 +40,7 @@ public class LaunchProjectile : MonoBehaviour {
 	void Update () {
 		if (Input.GetButtonDown ("Fire1") && weapons[weaponIndex].canShoot()) { //shooting mechanism
 			weapons[weaponIndex].attack(transform);
+			recoiler.StartRecoil(.2f, 10f, 10f);
 		}
 
 		if (Input.GetButtonDown ("Fire2")) { //reload mechanism
