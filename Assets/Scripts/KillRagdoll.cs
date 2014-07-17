@@ -14,6 +14,7 @@ public class KillRagdoll : MonoBehaviour {
 		GetComponent<AnimationManager>().enabled = false;
 		GetComponent<Animation>().enabled = false;
 		GetComponent<CharacterMotor>().enabled = false;
+		GetComponent<EnemyAI> ().enabled = false;
 		activateRecursively(transform.Find("master"), true);
 		setRagdoll (true);
 	}
