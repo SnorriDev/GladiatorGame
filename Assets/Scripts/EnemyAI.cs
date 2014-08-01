@@ -8,7 +8,9 @@ public class EnemyAI : MonoBehaviour {
 	private Seeker seeker;
 	private Path path;
 	private Transform compass;
-	private Transform model;
+
+	private float timeUpdate = .25f;
+	private float distUpdate = 1f;
 
 	private int currentWaypoint = 0;
 
@@ -17,17 +19,21 @@ public class EnemyAI : MonoBehaviour {
 	public float turnRate = 10f;
 	private Transform target;
 
+	private Vector3 oldPos;
+	private float timeFrom;
+
 	// Use this for initialization
 	void Start () {
 		target = GameObject.Find ("First Person Controller").transform;
 		seeker = transform.GetComponent<Seeker>();
 		motor = transform.GetComponent<CharacterMotor>();
 		compass = transform.Find ("Compass");
-		model = transform.Find ("master");
 		startNewPath ();
 	}
 
 	void startNewPath() {
+		oldPos = target.position;
+		timeFrom = 0;
 		seeker.StartPath (transform.position, target.position, onPathComplete);
 	}
 
@@ -42,23 +48,16 @@ public class EnemyAI : MonoBehaviour {
 		return Vector3.Angle (v1, v2) < turnMargin;
 	}
 
-	//test if closer to rotated angle on one side
-	private void turnTo(Vector3 from, Vector3 to) {
-		float weirdDot = from.x * -to.z + from.z * to.x; 
-
-		Vector3 rightNormal = new Vector3(from.z, -from.x);
-		Vector3 leftNormal = new Vector3(-from.z, from.x);
-
-		Debug.Log (new Vector3 (from.z, -from.x));
-
-		if (Vector3.Angle(to, rightNormal) < Vector3.Angle (to, leftNormal))
-			transform.Rotate (Vector3.up * Time.deltaTime * turnRate);
-		else
-			transform.Rotate (Vector3.down * Time.deltaTime * turnRate);
-
+	private void updatePath() {
+		timeFrom += Time.deltaTime;
+		if (Vector3.Distance (oldPos, target.position) > distUpdate && timeFrom > timeUpdate)
+			startNewPath ();
 	}
 
 	void FixedUpdate() {
+
+		updatePath();
+
 		if (path == null || currentWaypoint >= path.vectorPath.Count) {
 			motor.inputMoveDirection = Vector3.zero;
 			return;
@@ -71,7 +70,8 @@ public class EnemyAI : MonoBehaviour {
 			turnTo(transform.forward, direction);*/
 		
 		compass.LookAt (path.vectorPath[currentWaypoint]);
-		model.rotation = Quaternion.Lerp (model.rotation, compass.rotation, Time.deltaTime * turnRate);
+		compass.rotation.Set (compass.rotation.x, compass.rotation.y, 0, compass.rotation.w);
+		transform.rotation = Quaternion.Lerp (transform.rotation, compass.rotation, Time.deltaTime * turnRate);
 		motor.inputMoveDirection = direction;
 
 		if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance)
