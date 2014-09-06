@@ -128,6 +128,7 @@
      <Compile Include="Assets\Scripts\MeleeAttack.cs" />
      <Compile Include="Assets\Scripts\ParticleWeapon.cs" />
      <Compile Include="Assets\Scripts\ProjectileWeapon.cs" />
+     <Compile Include="Assets\Scripts\Puncher.cs" />
      <Compile Include="Assets\Scripts\Recoil.cs" />
      <Compile Include="Assets\Scripts\RefreshGraph.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
