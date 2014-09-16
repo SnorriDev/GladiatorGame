@@ -24,18 +24,19 @@ public class Puncher : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((Vector3.Distance(transform.position, target.transform.position) < maxRange) && (Vector3.Distance(transform.position, target.transform.position) > minRange)) {
-			transform.LookAt(targetTran);
-			transform.Translate(Vector3.forward * Time.deltaTime);
+		if ((Vector3.Distance(transform.position, target.transform.position) < maxRange) && (Vector3.Distance(transform.position, target.transform.position) > minRange) && !isPunching) {
+			//transform.LookAt(targetTran);
+			//transform.Translate(Vector3.forward * Time.deltaTime);
 			punch ();
 		}
 
 		if (punchTime != punchDelay) {
 			punchTime -= Time.deltaTime;
+			GetComponent<AnimationManager>().punch();
 			if (punchTime <= 0) {
 				punchTime = punchDelay;
-				GetComponent<AnimationManager>().punch();
 				isPunching = false;
+				GetComponent<EnemyAI> ().shouldMove = true;
 			}
 		}
 
@@ -44,6 +45,7 @@ public class Puncher : MonoBehaviour {
 	}
 
 	public void punch () {
+		GetComponent<EnemyAI> ().shouldMove = false;
 		punchTime = punchDelay - 0.01f;
 		isPunching = true;
 	}

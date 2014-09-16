@@ -35,16 +35,15 @@ public class AnimationManager : MonoBehaviour {
 	void Update () {
 		if (isPunching) {
 			animation.CrossFade (meleeAttack.name);
-			Debug.Log ("yo");
-			StartCoroutine(endPunch());
-			return;
+			StartCoroutine (endPunch ());
+		} else {
+			if (characterController.velocity.magnitude < walkSpeed)
+				animation.CrossFade (idle.name);
+			else if (characterController.velocity.magnitude < runSpeed)
+				animation.CrossFade (walking.name);
+			else
+				animation.CrossFade (running.name);
 		}
-		if (characterController.velocity.magnitude < walkSpeed)
-			animation.CrossFade (idle.name);
-		else if (characterController.velocity.magnitude < runSpeed)
-			animation.CrossFade (walking.name);
-		else
-			animation.CrossFade (running.name);
 
 	}
 

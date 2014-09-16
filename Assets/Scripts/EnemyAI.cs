@@ -17,6 +17,9 @@ public class EnemyAI : MonoBehaviour {
 	public float nextWaypointDistance = 0.5f;
 	public float turnMargin = 10f;
 	public float turnRate = 10f;
+
+	public bool shouldMove = true;
+
 	private Transform target;
 
 	private Vector3 oldPos;
@@ -56,6 +59,11 @@ public class EnemyAI : MonoBehaviour {
 
 	void FixedUpdate() {
 
+		if (! shouldMove) {
+			motor.inputMoveDirection = Vector3.zero;
+			return;
+		}
+
 		updatePath();
 
 		if (path == null || currentWaypoint >= path.vectorPath.Count) {
@@ -63,7 +71,7 @@ public class EnemyAI : MonoBehaviour {
 			return;
 		}
 		Vector3 direction = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-		
+
 		/*if (areClose(direction, transform.forward))
 			motor.inputMoveDirection = direction;
 		else
