@@ -24,11 +24,10 @@ public class AnimationManager : MonoBehaviour {
 	}
 
 	private IEnumerator endPunch() {
-		Debug.Log ("started punch");
 		float dur = meleeAttack.length;
 		yield return new WaitForSeconds(dur);
-		Debug.Log ("ended punch");
 		isPunching = false;
+		GetComponent<EnemyAI> ().shouldMove = true;
 	}
 	
 	// Update is called once per frame

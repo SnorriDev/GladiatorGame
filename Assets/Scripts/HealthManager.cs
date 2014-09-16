@@ -3,6 +3,8 @@ using System.Collections;
 
 public class HealthManager : MonoBehaviour {
 
+	//TODO: add damage broadcast system?
+
 	private KillRagdoll killRagdoll;
 
 	public float maxHealth;
@@ -28,6 +30,9 @@ public class HealthManager : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Z))
 			damage (100);
+
+		Debug.Log (transform.name);
+		Debug.Log (health);
 
 	}
 
