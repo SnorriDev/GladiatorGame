@@ -1,12 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AnimationManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RefreshGraph.cs">
     <Files>
-      <File FileName="Assets\Scripts\Puncher.cs" Line="21" Column="39" />
+      <File FileName="Assets\Scripts\HealthManager.cs" Line="18" Column="31" />
+      <File FileName="Assets\Scripts\Puncher.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Damager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\BulletTrail.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EnemyAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AnimationManager.cs" Line="27" Column="15" />
+      <File FileName="Assets\Scripts\AnimationManager.cs" Line="54" Column="1" />
+      <File FileName="Assets\Scripts\RefreshGraph.cs" Line="11" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

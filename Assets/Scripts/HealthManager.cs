@@ -31,9 +31,6 @@ public class HealthManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Z))
 			damage (100);
 
-		Debug.Log (transform.name);
-		Debug.Log (health);
-
 	}
 
 }
