@@ -6,7 +6,7 @@ public class WeaponPosition : MonoBehaviour {
 	public Transform weapon;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		Physics.IgnoreCollision (collider, transform.root.collider);
 	}
 	

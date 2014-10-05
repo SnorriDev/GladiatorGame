@@ -18,12 +18,13 @@ public class Levels : MonoBehaviour {
 		levelComplete = false;
 		allDead = false;
 		levelComplete = false;
-		enemiesToSpawn = (level + 1) * 2;
+		enemiesToSpawn = (level + 1) * 2 - 1;
+		enemies = new List<Transform> ();
 		for (int abc = 0; abc < enemiesToSpawn; abc++) {
 			enemies.Add ((Transform) Instantiate(enemy, (transform.position + new Vector3(Random.Range(-10.0F,10.0F), 0.0F, Random.Range(-10.0F,10.0F))), transform.rotation));
 			Debug.Log ("enemy spawned");
 		}
-		enemies = new List<Transform> ();
+
 		Debug.Log ("Test1");
 	}
 	void Start() {
@@ -33,7 +34,7 @@ public class Levels : MonoBehaviour {
 
 	void Update () {
 
-		//allDead = true;
+		allDead = true;
 
 		for (int i = 0; i < enemies.Count; i++) {
 			allDead &= enemies [i].GetComponent<HealthManager> ().isDead ();
@@ -41,13 +42,19 @@ public class Levels : MonoBehaviour {
 
 		if (allDead) {
 			levelComplete = true;
-			Debug.Log ("Test2");
+			Debug.Log ("AllDead");
 		}
 
 		if (levelComplete) {
+			for (int i = 0; i < enemies.Count; i++) {
+				Destroy (enemies [i].gameObject);
+			}
+			enemies = new List<Transform>();
 			level ++;
 			generateLevel ();
 			Debug.Log ("Test33333333333333333");
+			levelComplete = false;
+			allDead = false;
 		}
 
 	}
