@@ -1,51 +1,79 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+//delay level completion
+//mission completion
 
 public class Levels : MonoBehaviour {
 	public int level;
-	private bool allDead;
+	private bool objectivesComplete;
 	public bool levelComplete;
+	public bool missionComplete;
+	public bool isPaused;
+	public bool gameOver;
 	public Transform enemy;
+
+	public Transform player;
 
 	private List<Transform> enemies;
 	private int enemiesToSpawn;
 	//private int enemiesDead;
 
 	public void generateLevel () {
-		Debug.Log ("HIIII");
+		//Debug.Log ("HIIII");
 		levelComplete = false;
-		allDead = false;
+		objectivesComplete = false;
 		levelComplete = false;
 		enemiesToSpawn = (level + 1) * 2 - 1;
 		enemies = new List<Transform> ();
 		for (int abc = 0; abc < enemiesToSpawn; abc++) {
 			enemies.Add ((Transform) Instantiate(enemy, (transform.position + new Vector3(Random.Range(-10.0F,10.0F), 0.0F, Random.Range(-10.0F,10.0F))), transform.rotation));
-			Debug.Log ("enemy spawned");
+			//Debug.Log ("enemy spawned");
+			enemies [abc].GetComponent<EnemyAI> ().damage += level;
 		}
 
-		Debug.Log ("Test1");
+		//Debug.Log ("Test1");
 	}
 	void Start() {
 		generateLevel ();
-		Debug.Log ("Test0");
+		//Debug.Log ("Test0");
+		player = GameObject.Find ("First Person Controller").transform;
+		gameOver = false;
+		Screen.showCursor = false; 
+	}
+
+	void endGame () {
+		Debug.Log ("Game ova bitch");
+		gameOver = true;
+		Time.timeScale = 0;
+		//TODO: red screen 
 	}
 
 	void Update () {
+		if (player.GetComponent<HealthManager> ().isDead() && !gameOver) {
+			endGame ();
+			gameOver = true;
+			return;
+		}
 
-		allDead = true;
+		if (isPaused) {
+			return;
+		}
+
+		objectivesComplete = true;
 
 		for (int i = 0; i < enemies.Count; i++) {
-			allDead &= enemies [i].GetComponent<HealthManager> ().isDead ();
+			objectivesComplete &= enemies [i].GetComponent<HealthManager> ().isDead ();
 		}
 
-		if (allDead) {
+		if (objectivesComplete) {
 			levelComplete = true;
-			Debug.Log ("AllDead");
+			//Debug.Log ("AllDead");
+			StartCoroutine(changeLevel ());
+			isPaused = true;
 		}
 
-		if (levelComplete) {
+		/*if (levelComplete) {
 			for (int i = 0; i < enemies.Count; i++) {
 				Destroy (enemies [i].gameObject);
 			}
@@ -55,7 +83,26 @@ public class Levels : MonoBehaviour {
 			Debug.Log ("Test33333333333333333");
 			levelComplete = false;
 			allDead = false;
-		}
+		}*/
 
 	}
+
+
+	public IEnumerator changeLevel () {
+		//print(Time.time);
+		yield return new WaitForSeconds(5);
+		//print(Time.time);
+		
+		for (int i = 0; i < enemies.Count; i++) {
+			Destroy (enemies [i].gameObject);
+		}
+		enemies = new List<Transform>();
+		level ++;
+		generateLevel ();
+		//Debug.Log ("Test33333333333333333");
+		//levelComplete = false;
+		objectivesComplete = false;
+		isPaused = false;
+		}
+
 }

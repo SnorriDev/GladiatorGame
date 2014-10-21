@@ -122,6 +122,8 @@
      <Compile Include="Assets\Scripts\BulletTrail.cs" />
      <Compile Include="Assets\Scripts\Damager.cs" />
      <Compile Include="Assets\Scripts\EnemyAI.cs" />
+     <Compile Include="Assets\Scripts\FallDamage.cs" />
+     <Compile Include="Assets\Scripts\HUDManager.cs" />
      <Compile Include="Assets\Scripts\HealthManager.cs" />
      <Compile Include="Assets\Scripts\KillRagdoll.cs" />
      <Compile Include="Assets\Scripts\LaunchProjectile.cs" />

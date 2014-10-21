@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour {
 	
 	public int clipSize; //maximum ammount of ammo in gun at time
 	public int availableAmmo; //remaining bullets
-	private int ammo; //bullets in gun
+	public int ammo; //bullets in gun
 	
 	public float coolTime; //time between each shot
 	public float reloadTime; //time to reload (note: total reload time = reloadTime + coolTime to prevent reload cheating
@@ -36,7 +36,7 @@ public abstract class Weapon : MonoBehaviour {
 	public virtual void attack(Transform t) {
 		ammo --;
 		shotDelay = coolTime;
-		Debug.Log (audio);
+		//Debug.Log (audio);
 		if (audio != null)
 			audio.Play ();
 		//Debug.Log (ammo);

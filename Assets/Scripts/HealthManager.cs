@@ -8,7 +8,7 @@ public class HealthManager : MonoBehaviour {
 	private KillRagdoll killRagdoll;
 
 	public float maxHealth;
-	private float health;
+	public float health;
 
 	void Start () {
 		health = maxHealth;
@@ -22,7 +22,11 @@ public class HealthManager : MonoBehaviour {
 	public bool isDead() {
 		return health <= 0;
 	}
-	
+
+	public float getHealthRatio () {
+		return health / maxHealth;
+	}
+
 	void Update () {
 		if (isDead () && killRagdoll != null) {
 			killRagdoll.kill();
