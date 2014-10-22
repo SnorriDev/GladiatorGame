@@ -13,23 +13,41 @@ public class Levels : MonoBehaviour {
 	public bool gameOver;
 	public Transform enemy;
 
+	public float halfHeight = 0.7f;
+	public float width = 2f;
+
 	public Transform player;
 
 	private List<Transform> enemies;
 	private int enemiesToSpawn;
 	//private int enemiesDead;
 
+	//TODO: maybe pick a node on the grid instead?
+
+	private bool spawnEnemy() {
+		Vector3 position = transform.position + new Vector3 (Random.Range (-10.0F, 10.0F), 0.0F, Random.Range (-10.0F, 10.0F));
+		if (Physics.CheckCapsule (position + new Vector3 (0, halfHeight, 0), position - new Vector3 (0, halfHeight, 0), width)) {
+			enemies.Add ((Transform)Instantiate (enemy, position, transform.rotation));
+			return true;
+		}
+		return false;
+
+	}
+
+
 	public void generateLevel () {
-		//Debug.Log ("HIIII");
 		levelComplete = false;
 		objectivesComplete = false;
 		levelComplete = false;
 		enemiesToSpawn = (level + 1) * 2 - 1;
 		enemies = new List<Transform> ();
+		bool enemySpawned;
 		for (int abc = 0; abc < enemiesToSpawn; abc++) {
-			enemies.Add ((Transform) Instantiate(enemy, (transform.position + new Vector3(Random.Range(-10.0F,10.0F), 0.0F, Random.Range(-10.0F,10.0F))), transform.rotation));
-			//Debug.Log ("enemy spawned");
-			enemies [abc].GetComponent<EnemyAI> ().damage += level;
+			enemySpawned = spawnEnemy();
+			if (enemySpawned)
+				enemies [abc].GetComponent<EnemyAI> ().damage += level;
+			else
+				abc--;
 		}
 
 		//Debug.Log ("Test1");
