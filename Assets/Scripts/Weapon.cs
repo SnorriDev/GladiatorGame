@@ -4,7 +4,9 @@ using System.Collections;
 public abstract class Weapon : MonoBehaviour {
 
 	//move all the stuff about reloading, etc. into here
-	
+
+	public int AIRange = 10;
+
 	public int clipSize; //maximum ammount of ammo in gun at time
 	public int availableAmmo; //remaining bullets
 	public int ammo; //bullets in gun

@@ -52,12 +52,15 @@ public class Levels : MonoBehaviour {
 
 		//Debug.Log ("Test1");
 	}
-	void Start() {
-		generateLevel ();
+	void Awake() {
+		
 		//Debug.Log ("Test0");
 		player = GameObject.Find ("First Person Controller").transform;
 		gameOver = false;
 		Screen.showCursor = false; 
+
+		generateLevel ();
+
 	}
 
 	void endGame () {

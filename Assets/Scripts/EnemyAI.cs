@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour {
 	public float maxAngle;
 
 	public float damage = 5;
+	public Weapon weapon;
 
 	public bool shouldMove = true;
 
@@ -32,6 +33,9 @@ public class EnemyAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		weapon = transform.GetComponentInChildren<Weapon> ();
+
 		shouldMove = true;
 		target = GameObject.Find ("First Person Controller").transform;
 		seeker = transform.GetComponent<Seeker>();
@@ -64,7 +68,8 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	private bool isInRange(Transform target) {
-		return (Vector3.Distance (transform.position, target.transform.position) < maxRange) && 180 - Quaternion.Angle (compass.rotation, target.rotation) < maxAngle;
+		float distance = Vector3.Distance (transform.position, target.transform.position);
+		return (distance < (weapon == null ? maxRange : weapon.AIRange)) && 180 - Quaternion.Angle (compass.rotation, target.rotation) < maxAngle;
 	}
 
 	public void endPunch() {
@@ -78,9 +83,20 @@ public class EnemyAI : MonoBehaviour {
 		//TODO: figure out why it's idle for one full animation cycle
 
 		if (isInRange(target) && shouldMove) {
+
 			shouldMove = false;
-			GetComponent<Puncher>().punch ();
+			if (weapon == null)
+				GetComponent<Puncher>().punch ();
+			else {
+				if (weapon.canShoot())
+					weapon.attack (compass);
+				else
+					weapon.reload ();
+				shouldMove = true;
+			}
 		}
+
+		Debug.DrawRay (transform.position, compass.rotation.eulerAngles);
 
 		if (! shouldMove) {
 			motor.inputMoveDirection = Vector3.zero;

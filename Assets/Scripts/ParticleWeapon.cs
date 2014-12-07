@@ -9,6 +9,8 @@ public class ParticleWeapon : Weapon {
 
 	public override void attack(Transform t) {
 
+		Debug.Log (transform);
+
 		BulletTrail newLine = ((Transform) Instantiate(lineRenderer, t.position, t.rotation)).GetComponent<BulletTrail> ();
 
 		/*newLine.material = new Material (Shader.Find("Particles/Additive"));
@@ -27,4 +29,5 @@ public class ParticleWeapon : Weapon {
 
 		base.attack(t);
 	}
+
 }
